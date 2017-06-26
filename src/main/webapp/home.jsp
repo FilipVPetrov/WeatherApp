@@ -6,9 +6,10 @@
 	<script>
 	function myFunction() {
 	    document.getElementById("pragraph").innerHTML = "Paragraph changed.";
-	    alert("Filip");
+	    //alert("Filip");
 	}
 	</script>
+	
 		<h1>Home page</h1>
 		<h2>Weather</h2>
 		<ul>
