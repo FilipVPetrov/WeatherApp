@@ -1,4 +1,4 @@
-package initial.net.home;
+package initial.net.controllers;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

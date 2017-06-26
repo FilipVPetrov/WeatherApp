@@ -1,4 +1,4 @@
-package initial.net.home;
+package initial.net.controllers;
 
 import initial.net.beans.WeatherFilterBean;
 import initial.net.models.Weather;
@@ -6,7 +6,7 @@ import initial.net.utils.WeatherUtil;
 
 import java.util.List;
 
-import javax.ws.rs.BeanParam;
+//import javax.ws.rs.BeanParam;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -25,20 +25,40 @@ public class WeathersController {
 
 	private WeatherUtil weatherUtil = new WeatherUtil();
 	
+//	@GET
+//	public List<Weather> getWeathers(@BeanParam WeatherFilterBean filterBean){
+//		System.out.println("QueryParam : " + filterBean.getCity() +" : "+ filterBean.getStartTemperature() +
+//				" : " + filterBean.getEndTemperature());
+//		List<Weather> list = null;
+//		synchronized(weatherUtil){
+//			if(filterBean.getCity() != null){
+//				list = weatherUtil.findByCity(filterBean.getCity());
+//			}
+//			else if(filterBean.getStartTemperature() != null && filterBean.getEndTemperature() != null){
+//				list = weatherUtil.findByTemperatureRange(filterBean.getStartTemperature(), filterBean.getEndTemperature());
+//			}
+//			else{
+//				list = weatherUtil.getAllWeathers(); 	
+//			}
+//		}
+//		return list;
+//	}
+	
 	@GET
-	public List<Weather> getWeathers(@BeanParam WeatherFilterBean filterBean){
-		System.out.println("QueryParam : " + filterBean.getCity() +" : "+ filterBean.getStartTemperature() +
-				" : " + filterBean.getEndTemperature());
+	public List<Weather> getWeathers(@QueryParam("city") String city,
+			@QueryParam("startT") Double startTemperature,
+			@QueryParam("endT") Double endTemperature) {
+		System.out.println("QueryParam : " + city + " : " + startTemperature
+				+ " : " + endTemperature);
 		List<Weather> list = null;
-		synchronized(weatherUtil){
-			if(filterBean.getCity() != null){
-				list = weatherUtil.findByCity(filterBean.getCity());
-			}
-			else if(filterBean.getStartTemperature() != null && filterBean.getEndTemperature() != null){
-				list = weatherUtil.findByTemperatureRange(filterBean.getStartTemperature(), filterBean.getEndTemperature());
-			}
-			else{
-				list = weatherUtil.getAllWeathers(); 	
+		synchronized (weatherUtil) {
+			if (city != null) {
+				list = weatherUtil.findByCity(city);
+			} else if (startTemperature != null && endTemperature != null) {
+				list = weatherUtil.findByTemperatureRange(startTemperature,
+						endTemperature);
+			} else {
+				list = weatherUtil.getAllWeathers();
 			}
 		}
 		return list;

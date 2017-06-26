@@ -8,8 +8,8 @@ import initial.net.orders.Address;
 import initial.net.orders.Customer;
 import initial.net.orders.CustomerResource;
 
-import com.sun.jersey.api.json.JSONConfiguration;
-import com.sun.jersey.api.json.JSONJAXBContext;
+//import com.sun.jersey.api.json.JSONConfiguration;
+//import com.sun.jersey.api.json.JSONJAXBContext;
 
 @Provider
 @SuppressWarnings("rawtypes")
@@ -21,7 +21,7 @@ public class JAXBContextResolver implements ContextResolver<JAXBContext> {
 	private Class[] types = { Address.class, Customer.class, CustomerResource.class };
 
 	public JAXBContextResolver() throws Exception {
-		this.context = new JSONJAXBContext(JSONConfiguration.natural().build(), types);
+//		this.context = new JSONJAXBContext(JSONConfiguration.natural().build(), types);
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package initial.net.home;
+package initial.net.controllers;
 
 import initial.net.models.Weather;
 import initial.net.utils.WeatherUtil;
