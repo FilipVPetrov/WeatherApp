@@ -38,11 +38,9 @@
                 type: 'GET',
                 url: currentURL +"api/weathers",
                 dataType: "json",
-//                dataType: "application/json",
                 success: function(data){
                     console.log(data);
                     var json = data;
-                    window.alert(json);
                     var tr;
                     $('#results').append('<div class="block"></div>');
                     var $block = $('#results').find('.block').last();
