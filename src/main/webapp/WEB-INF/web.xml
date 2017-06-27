@@ -36,4 +36,24 @@
 	    <url-pattern>/*</url-pattern>
 	</servlet-mapping>
 	
+ 	<servlet>
+		<servlet-name>WeatherRecords</servlet-name>
+		<jsp-file>/WeathersRecords.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+	    <servlet-name>WeatherRecords</servlet-name>
+	    <url-pattern>/weathers/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Insert</servlet-name>
+		<jsp-file>/InsertWeather.jsp</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+	    <servlet-name>Insert</servlet-name>
+	    <url-pattern>/api/i/*</url-pattern>
+	</servlet-mapping>
+	
 </web-app>
