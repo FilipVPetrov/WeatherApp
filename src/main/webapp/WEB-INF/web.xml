@@ -3,11 +3,15 @@
 	<display-name>InitialWebApp</display-name>
 	<servlet>
 		<servlet-name>jersey</servlet-name>
-		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
 		<init-param>
-			<param-name>com.sun.jersey.config.property.packages</param-name>
+			<param-name>jersey.config.server.provider.packages</param-name>
 			<param-value>initial</param-value>
 		</init-param>
+<!-- 		<init-param>
+            <param-name>jersey.config.server.provider.classnames</param-name>
+            <param-value>org.glassfish.jersey.filter.LoggingFilter</param-value>
+        </init-param> -->
 		
 		<!-- the following is only needed if you want to use the built-in support
 		for mapping pojo objects to json.  Because i am using jaxb annotation, i will

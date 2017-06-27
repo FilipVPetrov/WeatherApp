@@ -10,7 +10,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>WeatherApp</title>
         <meta name="description" content="Weather application.">
-        <link rel="stylesheet" href="/webapp/styles/main.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/webapp/styles/main.css">
         <!--Loading JQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script>
@@ -23,8 +23,8 @@
         <p>
             Giving you information about the weather.
         </p>
-        <a href="/pictures/WeatherMH47.jpg">
-            <img alt="A screenshot showing Weather" src="/pictures/WeatherMH47.jpg" />
+        <a href="${pageContext.request.contextPath}/pictures/WeatherMH47.jpg">
+            <img alt="A screenshot showing Weather" src="${pageContext.request.contextPath}/pictures/WeatherMH47.jpg" />
         </a>
         <h2>Stay in touch</h2>
         <p>

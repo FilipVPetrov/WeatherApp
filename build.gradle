@@ -1,38 +1,24 @@
 apply plugin: 'eclipse'
 apply plugin: 'war'
+//apply plugin: 'java'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-
 	//Jersey
-    // JAX-RS 2.0(.1)
-//    compile 'javax.ws.rs:javax.ws.rs-api:2.0.1'
-    // Jersey 2.15
-//    compile 'org.glassfish.jersey.containers:jersey-container-servlet:2.15'
-    // Servlet 3
-//    compile 'javax.servlet:javax.servlet-api:3.1.0'
-	
-//	compile group: 'org.glassfish.jersey.core', name: 'jersey-common', version: '2.25.1'
-//	compile group: 'org.glassfish.jersey.containers', name: 'jersey-container-servlet-core', version: '2.25.1'
-	
-	compile 'com.sun.jersey:jersey-server:1.19.4'
-	compile 'com.sun.jersey:jersey-core:1.19.4'
-	compile 'com.sun.jersey:jersey-client:1.19.4'
-	compile 'com.sun.jersey:jersey-servlet:1.19.4'
-	compile 'com.sun.jersey:jersey-json:1.19.4'	
-	
-	compile 'com.yammer.metrics:metrics-core:2.2.0'
-	compile 'com.yammer.metrics:metrics-servlet:2.2.0'
-	compile 'com.yammer.metrics:metrics-jersey:2.2.0'
-	compile 'com.yammer.metrics:metrics-graphite:2.2.0'
-	
+	compile "org.glassfish.jersey.containers:jersey-container-servlet:2.22.2"
+	compile "javax.ws.rs:javax.ws.rs-api:2.0.1"
+	compile group: 'org.glassfish.jersey.core', name: 'jersey-common', version: '2.25.1'
+	compile group: 'org.glassfish.jersey.media', name: 'jersey-media-json-jackson', version: '2.25.1'
+	compile "org.glassfish.jersey.core:jersey-client:2.19"
+	compile "org.glassfish.jersey.core:jersey-server:2.19"
+	compile "org.glassfish.jersey.media:jersey-media-multipart:2.19"
+	compile "com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.4.1"
+
 	compile group: 'postgresql', name: 'postgresql', version: '9.0-801.jdbc4'
 	compile group: 'org.eclipse.persistence', name: 'eclipselink', version: '2.5.1'
-		
-	// https://mvnrepository.com/artifact/org.webjars/openui5
 	compile group: 'org.webjars', name: 'openui5', version: '1.32.10'
 	
 	compile 'log4j:log4j:1.2.16'
