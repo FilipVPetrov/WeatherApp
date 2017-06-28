@@ -3,14 +3,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
-    <!--
-    	<base href="${pageContext.request.contextPath}">
-     -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>WeatherApp</title>
         <meta name="description" content="Weather application.">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/webapp/styles/main.css">
+        <link href="<c:url value='/styles/style.css' />" rel="stylesheet" type="text/css" >
+<!--        <link rel="stylesheet" href="${pageContext.request.contextPath}/webapp/styles/main.css" type="text/css" >-->
         <!--Loading JQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script>
@@ -32,8 +30,11 @@
         </p>
         <ul>
           <li><a href="http://localhost:8080/InitialWebApp/weathers">Weather History</a></li>
-          <li>New Weather</li>
+          <li><a href="http://localhost:8080/InitialWebApp/inweather">New Weather</li>
           <li>Search Weather</li>
         </ul>
+        <script>
+            
+        </script>
     </body>
 </html>

@@ -7,17 +7,20 @@
 <title>Insert new Weather record</title>
 </head>
 <body>
-
-	<form action="home.jsp" method="post" id="inputForm" enctype="multipart/form-data">
+    <h1>Create new Weather Record<h1>
+    <form action="home.jsp" method="post" id="inputForm" enctype="multipart/form-data">
          <fieldset>
             <label for="city">City:</label>
-            <input type="text" id="name" name="name" placeholder="Enter your city name" />
+            <input type="text" id="weatherCity" name="weatherCity" placeholder="Enter your city name" />
+            <br />
+            <label for="longitude">Longitude:</label>
+            <input type="number" step="any" id="longitude" name="longitude" placeholder="Enter latitude" />
             <br />
             <label for="latitude">Latitude:</label>
             <input type="number" step="any" id="latitude" name="latitude" placeholder="Enter latitude" />
             <br />
-            <label for="longitude">Longitude:</label>
-            <input type="number" step="any" id="longitude" name="email" placeholder="Enter latitude" />
+            <label for="temperature">Temperature:</label>
+            <input type="number" step="any" id="temperature" name="temperature" placeholder="Enter temperature" />
             <br />
             <input type="submit" id="sub" value="Create Weather" />
             
@@ -26,15 +29,41 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.3.min.js" ></script>
 	<script>
 	  $("#sub").click( function() {
-          var element = 
-	     $.post( $("#inputForm").attr("action"), $("#inputForm :input").serializeArray());
-	     window.alert("Submit New Weather!");
-          window.alert(element);
+          addWeather();
 	  });
 	
 	  $("#inputForm").submit( function() {
 	     return false ;
 	  });
+        
+        function addWeather() {
+            //var currentURL = (location.href).substr(0, (location.href).lastIndexOf('inweather'));
+            //console.log(currentURL);
+            $.ajax({
+                type: 'POST',
+                contentType: 'application/json',
+                url: "<%= request.getContextPath() %>/api/weathers",
+                dataType: "json",
+                data: formToJSON(),
+                success: function(data, textStatus, jqXHR){
+                    alert('Weather created successfully');
+                    $('#weatherCity').show();
+                    $('#temperature').val(data.id);
+                },
+                error: function(jqXHR, textStatus, errorThrown){
+                    alert('addWine error: ' + textStatus);
+                }
+            });
+        }
+
+        function formToJSON() {
+            return JSON.stringify({
+                "city": $('#weatherCity').val(),
+                "longitude": $('#longitude').val(),
+                "latitude": $('#latitude').val(),
+                "temperature": $('#temperature').val(),
+                });
+        }
 	</script>
 </body>
 </html>
