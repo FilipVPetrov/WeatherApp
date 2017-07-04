@@ -44,26 +44,6 @@ public class WeathersController {
 		return list;
 	}
 	
-//	@GET
-//	public List<Weather> getWeathers(@QueryParam("city") String city,
-//			@QueryParam("startT") Double startTemperature,
-//			@QueryParam("endT") Double endTemperature) {
-//		System.out.println("QueryParam : " + city + " : " + startTemperature
-//				+ " : " + endTemperature);
-//		List<Weather> list = null;
-//		synchronized (weatherUtil) {
-//			if (city != null) {
-//				list = weatherUtil.findByCity(city);
-//			} else if (startTemperature != null && endTemperature != null) {
-//				list = weatherUtil.findByTemperatureRange(startTemperature,
-//						endTemperature);
-//			} else {
-//				list = weatherUtil.getAllWeathers();
-//			}
-//		}
-//		return list;
-//	}
-	
 	@GET
 	@Path("/{weatherId}")
 	public Weather messageID(@PathParam("weatherId") long id){

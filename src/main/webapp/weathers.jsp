@@ -13,9 +13,14 @@
         <script>
             window.jQuery || document.write('<script type="text/javascript" src="scripts/jquery-3.2.1.js"><\/script>"');
         </script>
+            <script>
+                 $(function(){
+                     $("#header").load("header.jsp"); 
+                 });
+            </script>
     </head>
     <body>
-        
+        <div id="header"></div>
         <h1>Weather</h1>
         <h2>Weather report</h2>
         <p>

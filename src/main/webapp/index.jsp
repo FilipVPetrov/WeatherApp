@@ -7,17 +7,24 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>WeatherApp</title>
         <meta name="description" content="Weather application.">
-        <link href="<c:url value='/styles/style.css' />" rel="stylesheet" type="text/css" >
-<!--        <link rel="stylesheet" href="${pageContext.request.contextPath}/webapp/styles/main.css" type="text/css" >-->
+        <link href="<%=request.getContextPath() %>/styles/style.css' rel="stylesheet" type="text/css" >
+<!--        <link rel="stylesheet" href="${pageContext.request.contextPath}/webapp/styles/main.css" type="text/css" > -->
         <!--Loading JQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script>
             window.jQuery || document.write('<script type="text/javascript" src="scripts/jquery-3.2.1.js"><\/script>"');
         </script>
+         <script> 
+			$(function(){
+			  $("#header").load("header.jsp"); 
+			});
+		</script>
     </head>
     <body>
+    	<div id="header"></div>
         <h1>Weather</h1>
         <h2>This is your weather application!</h2>
+     
         <p>
             Giving you information about the weather.
         </p>
@@ -29,8 +36,8 @@
             All the weather information at a glance or directly in your status bar. Fast, simple and free of charge. A weather forecast app, which accurately depicts the current weather and the emerging pattern. Severe Weather Warnings.
         </p>
         <ul>
-          <li><a href="http://localhost:8080/InitialWebApp/weathers">Weather History</a></li>
-          <li><a href="http://localhost:8080/InitialWebApp/inweather">New Weather</li>
+          <li><a href="<%=request.getContextPath() %>/weathers.jsp">Weather History</a></li>
+          <li><a href="<%=request.getContextPath() %>/inweather.jsp">New Weather</a></li>
           <li>Search Weather</li>
         </ul>
         <script>
