@@ -7,7 +7,7 @@
 </head>
 <body>
 	<h1>Authentication Error!</h1>
-	<p>Oops! You either typed in the wrong username or password.</p>
+	<p>Oops! You either typed in the wrong user name or password.</p>
 	<a href="javascript:history.back(1)">Try again ?</a>
 </body>
 </html>
