@@ -6,8 +6,8 @@
 <title>Authentication Error!</title>
 </head>
 <body>
-	<h1>Authentication Error!</h1>
+	<h1 id="error" >Authentication Error!</h1>
 	<p>Oops! You either typed in the wrong user name or password.</p>
-	<a href="javascript:history.back(1)">Try again ?</a>
+	<a href="">Try again ?</a>
 </body>
 </html>

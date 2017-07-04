@@ -38,7 +38,7 @@
         <ul>
           <li><a href="<%=request.getContextPath() %>/weathers.jsp">Weather History</a></li>
           <li><a href="<%=request.getContextPath() %>/inweather.jsp">New Weather</a></li>
-          <li>Search Weather</li>
+          <li><a href="<%=request.getContextPath() %>/LogIn.html">Search Weather</a></li>
         </ul>
         <script>
             

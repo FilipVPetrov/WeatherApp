@@ -20,6 +20,32 @@
 		<servlet-name>jersey</servlet-name>
 		<url-pattern>/api/*</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<display-name>ResourceServlet</display-name>
+		<servlet-name>ResourceServlet</servlet-name>
+		<servlet-class>com.sap.ui5.resource.ResourceServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ResourceServlet</servlet-name>
+		<url-pattern>/resources/*</url-pattern>
+	</servlet-mapping>
+	
+	<security-constraint>
+	    <web-resource-collection>
+	        <web-resource-name>InitialWebApp</web-resource-name>
+	        <url-pattern>/resources/*</url-pattern>
+	    </web-resource-collection>
+	    <!-- OMIT auth-constraint -->
+	</security-constraint>
+
+	<security-constraint>
+	    <web-resource-collection>
+	        <web-resource-name>initialopenui</web-resource-name>
+	        <url-pattern>/initialopenui/*</url-pattern>
+	    </web-resource-collection>
+	    <!-- OMIT auth-constraint -->
+	</security-constraint>
 
 	<security-constraint>
 		<web-resource-collection>
@@ -36,10 +62,10 @@
 			<role-name>*</role-name>
 		</auth-constraint>
 		
-<!-- 		<user-data-constraint>
-			transport-guarantee can be CONFIDENTIAL, INTEGRAL, or NONE
+ 		<user-data-constraint>
+			<!-- transport-guarantee can be CONFIDENTIAL, INTEGRAL, or NONE -->
 			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
-		</user-data-constraint> -->
+		</user-data-constraint> 
 		
 	</security-constraint>
 
@@ -47,7 +73,7 @@
 		<auth-method>FORM</auth-method>
 		<realm-name>JDBCRealm</realm-name>
    		<form-login-config>
-			<form-login-page>/login.jsp</form-login-page>
+			<form-login-page>/LogIn.html</form-login-page>
 			<form-error-page>/error.jsp</form-error-page>
 		</form-login-config> 
 	</login-config>
@@ -56,5 +82,5 @@
 		<description>All role is allowed to access this web application</description>
 		<role-name>*</role-name>
 	</security-role>
-
+	
 </web-app>
