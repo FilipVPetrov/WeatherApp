@@ -1,0 +1,36 @@
+<mvc:View controllerName="authentication.controller.LogInPanel"
+	xmlns="sap.m" xmlns:form="sap.ui.commons.form" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Panel headerText="{i18n>LoginPanelTitle}" class="sapUiResponsiveMargin"
+		width="auto">
+		<content>
+			<Label text="Please log in" class="myAppDemoWT customUserNL" />
+			<form:SimpleForm width="50%" maxContainerCols="3"
+				layout="ResponsiveLayout">
+
+				<form:title>
+					<core:Title></core:Title>
+				</form:title>
+
+				<form:content>
+					<Label text="" />
+					<Input id="j_username" placeholder="Username"
+						valueLiveUpdate="true" class="myCustomUserNameTF" submit="onLogIn" />
+
+					<Label text="" />
+					<Input id="j_password" placeholder="Password"
+						valueLiveUpdate="true" type="Password" submit="onLogIn" class="myCustomPasswordTF" />
+
+					<Label text="" />
+					<Button text="{i18n>LogInButtonText}" press="onLogIn"
+						class="myAppDemoWT myCustomButton " width="50%" />
+
+				</form:content>
+
+				<form:title>
+					<core:Title></core:Title>
+				</form:title>
+			</form:SimpleForm>
+		</content>
+	</Panel>
+</mvc:View>

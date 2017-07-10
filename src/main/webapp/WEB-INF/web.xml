@@ -41,8 +41,8 @@
 
 	<security-constraint>
 	    <web-resource-collection>
-	        <web-resource-name>initialopenui</web-resource-name>
-	        <url-pattern>/initialopenui/*</url-pattern>
+	        <web-resource-name>authentication</web-resource-name>
+	        <url-pattern>/authentication/*</url-pattern>
 	    </web-resource-collection>
 	    <!-- OMIT auth-constraint -->
 	</security-constraint>
@@ -73,7 +73,7 @@
 		<auth-method>FORM</auth-method>
 		<realm-name>JDBCRealm</realm-name>
    		<form-login-config>
-			<form-login-page>/LogIn.html</form-login-page>
+			<form-login-page>/login.jsp</form-login-page>
 			<form-error-page>/error.jsp</form-error-page>
 		</form-login-config> 
 	</login-config>
