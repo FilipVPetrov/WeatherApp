@@ -10,7 +10,7 @@
 						press="onOpenDialog"/>
 				</headerContent>
 				<content>
-					<mvc:XMLView viewName="initialopenui.view.HomePanel"/>
+					<mvc:XMLView viewName="initialopenui.view.LogInPanel"/>
 				</content>
 				
 			</Page>

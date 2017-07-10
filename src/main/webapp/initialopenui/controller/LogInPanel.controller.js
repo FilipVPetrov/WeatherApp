@@ -3,7 +3,7 @@ sap.ui.define([
    "sap/m/MessageToast"
 ], function (Controller, MessageToast) {
    "use strict";
-   return Controller.extend("initialopenui.controller.HomePanel", {
+   return Controller.extend("initialopenui.controller.LogInPanel", {
       onLogIn : function () {
     	  var user = this.getView().byId("j_username").getValue();
     	  var password = this.getView().byId("j_password").getValue();
