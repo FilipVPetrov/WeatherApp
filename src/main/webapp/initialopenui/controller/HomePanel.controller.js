@@ -39,6 +39,7 @@ sap.ui.define([
             	  console.log(textStatus, xhr);
               },
               error: function(jqXHR, textStatus, errorThrown) {
+            	  //issue with the request
             	  MessageToast.show("Error!");
                   console.log(textStatus, errorThrown);
               }
