@@ -33,7 +33,8 @@ sap.ui.define([
 						MessageToast.show("Login failure!");
 					} else {
 						MessageToast.show("Log in successfully!");
-						window.location.href = homeURL;
+//						window.location.href = homeURL;
+						window.location.href = window.location.href;
 					}
 					console.log($errorAuth);
 					console.log($errorAuth.length);

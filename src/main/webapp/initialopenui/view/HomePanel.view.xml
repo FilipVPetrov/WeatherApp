@@ -1,9 +1,40 @@
 <mvc:View controllerName="initialopenui.controller.HomePanel"
-	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
-	<Panel headerText="{i18n>helloPanelTitle}" class="sapUiResponsiveMargin"
+	xmlns="sap.m" xmlns:form="sap.ui.commons.form" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Panel headerText="{i18n>HeaderTitle}" class="sapUiResponsiveMargin"
 		width="auto">
 		<content>
-			<Lable></Lable>
+			<VBox>
+				<Text text="This is your weather application! "/>
+				<Text text="Giving you information about the weather."/>
+				<Text text="All the weather information at a glance or directly in your status bar. 
+				Fast, simple and free of charge."/>
+				<Text text="A weather forecast app, which accurately 
+				depicts the current weather and the emerging pattern. Severe Weather Warnings."/>
+				<Text text=""/>
+			</VBox>
+			<Image id="weatherImage" src="pictures/WeatherMH47.jpg" />
+			<VBox>
+				<Text text=""/>
+				<Text text="Stay in touch!"/>
+			</VBox>
+			
+			<IconTabBar id="iconTabBar" expanded="{device>/isNoPhone}"
+                  class="sapUiNoContentPadding">                
+            <items>
+               <IconTabFilter icon="sap-icon://inspection" key="displayAll" >
+                  <form:SimpleForm>
+                     <form:content>
+						 <mvc:XMLView viewName="initialopenui.view.WeatherList"/>
+						
+                     </form:content>
+                  </form:SimpleForm>
+               </IconTabFilter>
+               <IconTabFilter icon="sap-icon://create" key="create">
+                  <Text text="Create new weather record." id="create"/>
+               </IconTabFilter>
+            </items>
+         </IconTabBar>
 		</content>
 	</Panel>
 </mvc:View>

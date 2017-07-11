@@ -9,7 +9,7 @@
 					<Button icon="sap-icon://home" press="onOpenDialog" />
 				</headerContent>
 				<content>
-					<mvc:XMLView viewName="initialopenui.view.LogInPanel" />
+					<mvc:XMLView viewName="initialopenui.view.HomePanel" />
 				</content>
 
 			</Page>

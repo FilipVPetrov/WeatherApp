@@ -3,7 +3,7 @@ sap.ui.define([
 ], function (Controller) {
 	"use strict";
  
-	return Controller.extend("initialopenui.wt.controller.HomePanel", {
+	return Controller.extend("initialopenui.controller.HomePanel", {
 		
 	});
  
