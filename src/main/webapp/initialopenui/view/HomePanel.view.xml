@@ -26,12 +26,12 @@
                   <form:SimpleForm>
                      <form:content>
 						 <mvc:XMLView viewName="initialopenui.view.WeatherList"/>
-						
                      </form:content>
                   </form:SimpleForm>
                </IconTabFilter>
                <IconTabFilter icon="sap-icon://create" key="create">
                   <Text text="Create new weather record." id="create"/>
+				  <mvc:XMLView viewName="initialopenui.view.CreateWeatherPanel"/>
                </IconTabFilter>
             </items>
          </IconTabBar>

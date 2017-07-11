@@ -6,7 +6,7 @@
 			<Page title="{i18n>homePageTitle}">
 				<headerContent>
 					<!-- <mvc:XMLView viewName="initialopenui.view.HeaderPanel"/> -->
-					<Button icon="sap-icon://home" press="onOpenDialog" />
+					<Button icon="sap-icon://log" press="logOut" />
 				</headerContent>
 				<content>
 					<mvc:XMLView viewName="initialopenui.view.HomePanel" />

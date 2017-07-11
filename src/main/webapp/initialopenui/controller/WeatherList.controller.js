@@ -5,7 +5,7 @@ sap.ui.define([
 	"use strict";
  
 	return Controller.extend("initialopenui.controller.WeatherList", {
-		onInit: function (){
+		onBeforeRendering: function (){
 			console.log("WeatherList Init");
 			
 			var oViewModel = new JSONModel({
@@ -17,8 +17,8 @@ sap.ui.define([
 		},
 		
 		findAll : function() {
-            var currentURL = (location.href).substr(0, (location.href).lastIndexOf('home.html'));
-//			var currentURL = window.location.origin + "/" + appName;
+//            var currentURL = (location.href).substr(0, (location.href).lastIndexOf('home.html'));
+			var currentURL = location.href;
 			var oModel = new JSONModel();
 			
             $.ajax({

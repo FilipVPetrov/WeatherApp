@@ -1,3 +1,35 @@
-<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" controllerName="initialopenui.controller.CreateWeatherPanel">
-	
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	controllerName="initialopenui.controller.CreateWeatherPanel">
+	<Panel headerText="{i18n>NewWeatherTitle}" class="sapUiResponsiveMargin"
+		width="auto">
+		<content>
+			<VBox>
+				<Text text="This is your weather application! " />
+				<Text text="Giving you information about the weather." />
+				<Text
+					text="All the weather information at a glance or directly in your status bar. 
+				Fast, simple and free of charge." />
+				<Text
+					text="A weather forecast app, which accurately 
+				depicts the current weather and the emerging pattern. Severe Weather Warnings." />
+				<Text text="" />
+
+				<Input id="city" placeholder="City" valueLiveUpdate="true"
+					class="" submit="createNewWeather" />
+
+				<Input id="temperature" placeholder="Temperature" valueLiveUpdate="true"
+					type="Number" submit="createNewWeather" class="" />
+					
+				<Input id="longitude" placeholder="Longitude" valueLiveUpdate="true"
+					type="Number" submit="createNewWeather" class="" />
+				
+				<Input id="latitude" placeholder="Latitude" valueLiveUpdate="true"
+					type="Number" submit="createNewWeather" class="" />
+
+				<Label text="" />
+				<Button text="{i18n>CreateWeatherButtonText}" press="createNewWeather"
+					class="myAppDemoWT myCustomButton " width="50%" />
+			</VBox>
+		</content>
+	</Panel>
 </mvc:View>
