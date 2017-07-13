@@ -20,7 +20,8 @@ dependencies {
 
 	compile group: 'postgresql', name: 'postgresql', version: '9.0-801.jdbc4'
 	compile group: 'org.eclipse.persistence', name: 'eclipselink', version: '2.5.1'
-	compile group: 'org.webjars', name: 'openui5', version: '1.32.10'
+	
+	compile group: 'org.webjars', name: 'openui5', version: '1.46.10'
 	
 	compile 'log4j:log4j:1.2.16'
 	testCompile "junit:junit-dep:4.10"
@@ -28,4 +29,13 @@ dependencies {
 
 task wrapper(type: Wrapper) {
     gradleVersion = '3.2.1'
+}
+
+task copyWAR(type: Copy) {
+    from 'build/libs'
+    into 'build/exportedWar'
+    delete "C:/apache-tomcat-7.0.79/webapps/InitialWebApp.war"
+    delete "C:/apache-tomcat-7.0.79/webapps/InitialWebApp"
+    from 'build/exportedWar'
+    into 'C:/apache-tomcat-7.0.79/webapps/'
 }
