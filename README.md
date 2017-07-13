@@ -1,11 +1,12 @@
-#Setup SSL on Tomcat
+# How to set up
+## Setup SSL on Tomcat
 
-Generates a certificate in your home directory
-* keytool -genkey -alias tomcat -keyalg RSA
+Generates a certificate in your home directory 
+* keytool -genkey -alias tomcat -keyalg RSA -keystore "YourLocation\Mycert.cert"
  Output: 
 PS C:\Users\Filip\workspace\InitialWebApp> keytool -genkey -alias tomcat -keyalg RSA -keystore "YourLocation\Mycert.cert"
-Enter keystore password:
-Re-enter new password:
+Enter keystore password: 
+Re-enter new password: 
 What is your first and last name?
   [Unknown]:  filippetrov
 What is the name of your organizational unit?
