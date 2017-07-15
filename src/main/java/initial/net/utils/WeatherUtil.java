@@ -6,10 +6,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.sql.DataSource;
 
 public class WeatherUtil {
 	private static EntityManagerFactory entityManagerFactory = Persistence
@@ -27,6 +30,24 @@ public class WeatherUtil {
 //		weatherUtil.getAllWeathers();
 //		weatherUtil.findByCity("Berlin");
 //		weatherUtil.find(2001);
+	}
+	
+	public WeatherUtil() {
+		InitialContext cxt;
+		try {
+			cxt = new InitialContext();
+			DataSource ds = (DataSource) cxt.lookup( "java:/comp/env/jdbc/postgres" );
+	
+			if ( ds == null ) {
+			   throw new Exception("Data source not found!");
+			}
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void createWeather(){

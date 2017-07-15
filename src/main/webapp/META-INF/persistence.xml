@@ -3,12 +3,16 @@
   version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
   <persistence-unit name="InitialWebApp">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <non-jta-data-source>java:comp/env/jdbc/postgres</non-jta-data-source>
+    
     <class>initial.net.models.Weather</class>
     <properties>
-      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+<!--       
+	  <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
       <property name="javax.persistence.jdbc.url"    value="jdbc:postgresql://localhost:5432/postgres" />
       <property name="javax.persistence.jdbc.user" value="postgres" />
-      <property name="javax.persistence.jdbc.password" value="copenhagen" />
+      <property name="javax.persistence.jdbc.password" value="copenhagen" /> 
+-->
       <property name="eclipselink.ddl-generation" value="create-tables" />
       <property name="eclipselink.ddl-generation.output-mode" value="database" />
     </properties>

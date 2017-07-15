@@ -61,7 +61,6 @@ task wrapper(type: Wrapper) {
 task copyWAR(type: Copy) {
     from 'build/libs'
     into 'build/exportedWar'
-    delete "build/libs"
     delete "C:/apache-tomcat-7.0.79/webapps/InitialWebApp.war"
     delete "C:/apache-tomcat-7.0.79/webapps/InitialWebApp"
     from 'build/exportedWar'
