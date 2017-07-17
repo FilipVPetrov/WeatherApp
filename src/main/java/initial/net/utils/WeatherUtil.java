@@ -15,8 +15,9 @@ import javax.persistence.Query;
 import javax.sql.DataSource;
 
 public class WeatherUtil {
+	static String PERSISTENCE_UNIT = "InitialWebApp";
 	private static EntityManagerFactory entityManagerFactory = Persistence
-			.createEntityManagerFactory("InitialWebApp");
+			.createEntityManagerFactory(PERSISTENCE_UNIT);
 
 	public static void main(String args[]) {
 		WeatherUtil weatherUtil = new WeatherUtil();
