@@ -32,24 +32,6 @@ public class WeatherUtil {
 //		weatherUtil.find(2001);
 	}
 	
-	public WeatherUtil() {
-		InitialContext cxt;
-		try {
-			cxt = new InitialContext();
-			DataSource ds = (DataSource) cxt.lookup( "java:/comp/env/jdbc/postgres" );
-	
-			if ( ds == null ) {
-			   throw new Exception("Data source not found!");
-			}
-		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
 	public void createWeather(){
 		EntityManager entityManager = null;
 		try{
