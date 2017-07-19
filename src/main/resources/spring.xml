@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		">
+	
+	<!-- Scans the classpath for annotated components that will be auto-registered as Spring beans -->
+	<context:component-scan base-package="initial.net" />
+	<!-- Activates various annotations to be detected in bean classes e.g: @Autowired -->
+	<context:annotation-config />
+	
+<!-- 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+	    <property name="jndiName" value="java:comp/env/jdbc/postgres"/>
+	    <property name="jndiName" value="jdbc/postgres"/>
+	</bean> -->
+	
+<!--  	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+	  <property name="jndiName" value="java:comp/env/jdbc/postgres"/>
+	  <property name="lookupOnStartup" value="true"/>
+	  <property name="proxyInterface" value="javax.sql.DataSource"/>
+	</bean> -->
+	
+<!-- 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean"
+        scope="singleton">
+        <property name="jndiName" value="java:comp/env/jdbc/postgres" />
+        <property name="resourceRef" value="true" />
+    </bean> -->
+    <beans:bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+    	<beans:property name="jndiName" value="java:comp/env/jdbc/postgres"/>
+	</beans:bean>
+	
+<!-- 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="url" value="jdbc:postgresql://localhost:5432/postgres" />
+		<property name="username" value="postgres" />
+		<property name="password" value="copenhagen" />
+	</bean> -->
+	
+	<bean id="entityManagerFactory" 
+	    class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+	  	<property name="dataSource" ref="dataSource" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter">
+ 				<property name="generateDdl" value="true" />
+				<property name="showSql" value="true" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- Transactions -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	<!-- enable the configuration of transactional behavior based on annotations -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+</beans>

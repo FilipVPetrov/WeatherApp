@@ -33,7 +33,11 @@ task sourceSetProperties << {
 dependencies {
 	compile files('src/main/webapp')
 	print "Setting SourceSet"
-	//runtime files('src')
+
+	//Spring
+	compile group: 'org.springframework', name: 'spring-context', version: '4.3.9.RELEASE'
+	compile group: 'org.springframework', name: 'spring-orm', version: '4.3.9.RELEASE'
+
 	//Jersey
 	compile "org.glassfish.jersey.containers:jersey-container-servlet:2.22.2"
 	compile "javax.ws.rs:javax.ws.rs-api:2.0.1"
