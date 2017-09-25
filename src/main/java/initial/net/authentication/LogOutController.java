@@ -1,4 +1,4 @@
-package initial.net.controllers;
+package initial.net.authentication;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;

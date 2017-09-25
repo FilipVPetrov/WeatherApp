@@ -2,6 +2,8 @@ package initial.net.controllers;
 
 import initial.net.beans.WeatherFilterBean;
 import initial.net.models.Weather;
+import initial.net.service.SpringORMMain;
+import initial.net.service.WeatherService;
 import initial.net.utils.WeatherUtil;
 
 import java.util.List;
@@ -18,27 +20,32 @@ import javax.ws.rs.Produces;
 //import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 @Path("/weathers")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class WeathersController {
 
-	private WeatherUtil weatherUtil = new WeatherUtil();
+	static String XML_SPRING_CONFIGURATION = "classpath:/spring.xml";
+	private ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(XML_SPRING_CONFIGURATION);
+	private WeatherService weatherService = ctx.getBean(WeatherService.class);
 	
 	@GET
 	public List<Weather> getWeathers(@BeanParam WeatherFilterBean filterBean){
 		System.out.println("QueryParam : " + filterBean.getCity() +" : "+ filterBean.getStartTemperature() +
 				" : " + filterBean.getEndTemperature());
+//		SpringORMMain.test();
 		List<Weather> list = null;
-		synchronized(weatherUtil){
+		synchronized(weatherService){
 			if(filterBean.getCity() != null){
-				list = weatherUtil.findByCity(filterBean.getCity());
+				list = weatherService.findByCity(filterBean.getCity());
 			}
 			else if(filterBean.getStartTemperature() != null && filterBean.getEndTemperature() != null){
-				list = weatherUtil.findByTemperatureRange(filterBean.getStartTemperature(), filterBean.getEndTemperature());
+				list = weatherService.findByTemperatureRange(filterBean.getStartTemperature(), filterBean.getEndTemperature());
 			}
 			else{
-				list = weatherUtil.getAllWeathers(); 	
+				list = weatherService.listAll(); 	
 			}
 		}
 		return list;
@@ -48,8 +55,8 @@ public class WeathersController {
 	@Path("/{weatherId}")
 	public Weather messageID(@PathParam("weatherId") long id){
 		Weather weather = null;
-		synchronized(weatherUtil){
-			weather = weatherUtil.find(id);
+		synchronized(weatherService){
+			weather = weatherService.find(id);
 		}
 		return weather;			
 	}
@@ -58,24 +65,25 @@ public class WeathersController {
 	@Path("/{weatherId}")
 	public Weather updateWeather(@PathParam("weatherId") long id, Weather weather){
 		weather.setId(id);
-		synchronized(weatherUtil){
-			return weatherUtil.updateWeather(weather);
+		synchronized(weatherService){
+			return weatherService.updateWeather(weather);
 		}
 	}
 	
 	@DELETE
 	@Path("/{weatherId}")
 	public void deleteWeather(@PathParam("weatherId") long id){
-		synchronized(weatherUtil){
-			weatherUtil.deleteWeather(id);
+		synchronized(weatherService){
+			weatherService.deleteWeather(id);
 		}
 	}
 	
 	@POST
 	public Weather addWeather(Weather weather){
+		System.out.println("Adding Weather!");
 		Weather temp = null;
-		synchronized(weatherUtil){
-			temp = weatherUtil.addWeather(weather);
+		synchronized(weatherService){
+			temp = weatherService.add(weather);
 		}
 		return temp;
 	}

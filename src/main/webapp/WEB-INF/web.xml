@@ -21,15 +21,20 @@
 		<url-pattern>/api/*</url-pattern>
 	</servlet-mapping>
 	
-	<servlet>
-		<display-name>ResourceServlet</display-name>
-		<servlet-name>ResourceServlet</servlet-name>
-		<servlet-class>com.sap.ui5.resource.ResourceServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ResourceServlet</servlet-name>
-		<url-pattern>/resources/*</url-pattern>
-	</servlet-mapping>
+	<resource-ref>
+		 <description>postgreSQL Datasource example</description>
+		 <res-ref-name>jdbc/postgres</res-ref-name>
+		 <res-type>javax.sql.DataSource</res-type>
+		 <res-auth>Container</res-auth>
+	</resource-ref>
+	
+	<security-constraint>
+	    <web-resource-collection>
+	        <web-resource-name>InitialWebApp</web-resource-name>
+	        <url-pattern>/openui5-runtime-1.46.11/*</url-pattern>
+	    </web-resource-collection>
+	    <!-- OMIT auth-constraint -->
+	</security-constraint>
 	
 	<security-constraint>
 	    <web-resource-collection>

@@ -1,4 +1,8 @@
-# How to set up
+# How to set up project
+
+## Tomcat configuration  
+Copy the tomcat configuratio from the TomcatConf to your tomcat directory.
+
 ## Setup SSL on Tomcat
 
 Generates a certificate in your home directory 

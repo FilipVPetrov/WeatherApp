@@ -6,14 +6,20 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.sql.DataSource;
 
+@Deprecated
 public class WeatherUtil {
+	
+	static String PERSISTENCE_UNIT = "InitialWebApp";
 	private static EntityManagerFactory entityManagerFactory = Persistence
-			.createEntityManagerFactory("InitialWebApp");
+			.createEntityManagerFactory(PERSISTENCE_UNIT);
 
 	public static void main(String args[]) {
 		WeatherUtil weatherUtil = new WeatherUtil();
@@ -29,6 +35,8 @@ public class WeatherUtil {
 //		weatherUtil.find(2001);
 	}
 	
+	
+	@Deprecated
 	public void createWeather(){
 		EntityManager entityManager = null;
 		try{
@@ -44,6 +52,7 @@ public class WeatherUtil {
 			entityManager.close();
 		}
 	}
+	
 	public Weather addWeather(Weather weather){
 		EntityManager entityManager = null;
 		Weather temp = null;
